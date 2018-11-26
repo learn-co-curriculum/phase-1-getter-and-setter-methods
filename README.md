@@ -6,14 +6,25 @@
 
 ## Introduction
 
-Often in programming, you want to work with dynamic data. Just like
-in Ruby, you can _get_ and _set_ the values of variables. You can
-define a setter method execute when a specified property is being
-changed and have a getter method that returns a
-dynamically computed value, or reflects the status of an internal
-variable. There are a couple of ways to do this, so we will be
-building on the concept of _instance variables_ to illustrate this
-concept.
+We've seen so far that we can write methods inside our classes
+that allow us to access and change instance variables:
+
+```js
+speak() {
+return `${this.name} says 'woof!'`
+}
+
+haveBirthday() {
+this.age += 1
+}
+```
+
+These types of methods work just fine in most cases. There is,
+however, additional JS syntax that we can use: `get` and `set`. `get` is
+used to identify methods that return calculated or dynamic data based an
+object's attributes. `set` is used for methods where we want to change an
+attribute in a controlled way. In this lab, we will be building on the
+concept of _instance variables_ to illustrate these methods.
 
 
 ## Builds a Setter Method to Calculate Computed Properties
@@ -21,37 +32,47 @@ concept.
 Let's look at an example that may be familiar:
 
 ```js
-class Dog {
-  constructor(name, sex) {
+class Bird {
+  constructor(name) {
     this.name = name;
   }
 
-  speak() {
-    return `${this.name} says woof!`
+  set phrase() {
+    this.phrase = phrase;
+  }
+
+  get speak() {
+    return `${this.name} says ${this.phrase || 'squawk'}`
   }
 }
 ```
-Our class of `Dog` accepts 2 parameters, which are set each time a new
-instance of `Dog` is created.
+Our class of `Bird` accepts the parameter of `name`, which is set each time a new
+instance of `Bird` is created. When `phrase` is set, our new `Bird` instance
+can speak a phrase. If it is not set, it will squawk.
 
 ```js
-var buddy = Dog.new("Buddy", "male")
+var buddy = Bird.new("Buddy")
 
-buddy.speak() // returns 'Buddy says woof!'
+buddy.phrase = "What'cha doin'?";
+buddy.speak() // returns 'Buddy says What'cha doin'?'
 ```
 
 Building on this concept, we're going to build our own shape calculator!
-- Create a class of `Circle`
-- `Circle` will accept 1 parameter with a setter method of `radius`
-- Define methods for `diameter`, `circumference`, and `area`.
-- Define a constant for `pi`
+- First, let's create a class of `Circle`
+- `Circle` will accept 1 parameter of `radius` as instance data
+- Define a `constant` for `pi` as `3.14`
+- Define `get` methods for `diameter`, `circumference`, and `area` which
+will calculate each value from `radius`
+- Define `set` methods for `diameter`, `circumference`, and `area` which
+will do the math in reverse and _set_ the `radius` for the instance.
 - Given the `radius`, calculate the following in each corresponding method:
   - `diameter`: `radius` x 2
   - `circumference`: `pi` x 2 x `radius`
   - `area`: `pi` x `radius`². Don't forget about [PEMDAS](https://en.wikipedia.org/wiki/Order_of_operations)!
 
   All instances of `Circle` should be able to calculate the `diameter`,
-  `circumference`, and `area` based on the given `radius`.
+  `circumference`, and `area` based on the given `radius`, or can have `radius`
+  set by passing in `diameter`, `circumference`, or `area`.
 
 ## Conclusion
 
