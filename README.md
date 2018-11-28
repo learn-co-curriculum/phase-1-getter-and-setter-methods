@@ -7,29 +7,17 @@
 ## Introduction
 
 We've seen so far that we can write methods inside our `class`es
-that allow us to access and change instance variables:
-
-```js
-speak() {
-return `${this.name} says 'woof!'`
-}
-
-haveBirthday() {
-this.age += 1
-}
-```
-
-These types of methods work just fine in most cases. There is,
-however, additional JS syntax that we can use: `get` and `set`. `get` is
-used to identify methods that return calculated or dynamic data based an
-object's attributes. `set` is used for methods where we want to change an
+that allow us to access and change instance variables. These methods work 
+fine in some cases. However, we know about additional JS syntax that we
+can use: `get` and `set`. With `get`, we can return calculated or dynamic
+data based an object's attributes, and with `set` we can change an
 attribute in a controlled way. In this lab, we will be building on the
 concept of _instance variables_ to illustrate these methods.
 
 
 ## Builds Getter and Setter Method to Calculate Computed Properties
 
-Let's look at an example that may be familiar:
+Let's look at a quick example for review:
 
 ```js
 class Bird {
