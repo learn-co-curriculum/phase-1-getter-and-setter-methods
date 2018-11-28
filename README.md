@@ -2,11 +2,11 @@
 
 ## Learning Goals
 
-- Builds a setter method to calculate computed properties
+- Builds getter and setter method to calculate computed properties
 
 ## Introduction
 
-We've seen so far that we can write methods inside our classes
+We've seen so far that we can write methods inside our `class`es
 that allow us to access and change instance variables:
 
 ```js
@@ -27,7 +27,7 @@ attribute in a controlled way. In this lab, we will be building on the
 concept of _instance variables_ to illustrate these methods.
 
 
-## Builds a Setter Method to Calculate Computed Properties
+## Builds Getter and Setter Method to Calculate Computed Properties
 
 Let's look at an example that may be familiar:
 
@@ -46,7 +46,7 @@ class Bird {
   }
 }
 ```
-Our class of `Bird` accepts the parameter of `name`, which is set each time a new
+Our `class` of `Bird` accepts the parameter of `name`, which is set each time a new
 instance of `Bird` is created. When `phrase` is set, our new `Bird` instance
 can speak a phrase. If it is not set, it will squawk.
 
@@ -58,20 +58,20 @@ buddy.speak() // returns 'Buddy says What'cha doin'?'
 ```
 
 Building on this concept, we're going to build our own shape calculator!
-- First, let's create a class of `Circle`
-- `Circle` will accept 1 parameter of `radius` as instance data
+- First, let's create a `class` of `Circle`
+- `Circle` will accept 1 parameter of `radius` as instance data stored to `this.radius`
 - Define a `constant` for `pi` as `3.14`
 - Define `get` methods for `diameter`, `circumference`, and `area` which
-will calculate each value from `radius`
+will calculate each value from `this.radius`
 - Define `set` methods for `diameter`, `circumference`, and `area` which
-will do the math in reverse and _set_ the `radius` for the instance.
+will do the math in reverse and _set_ `this.radius` for the instance.
 - Given the `radius`, calculate the following in each corresponding method:
-  - `diameter`: `radius` x 2
-  - `circumference`: `pi` x 2 x `radius`
-  - `area`: `pi` x `radius`². Don't forget about [PEMDAS](https://en.wikipedia.org/wiki/Order_of_operations)!
+  - `diameter`: `this.radius` x 2
+  - `circumference`: `pi` x 2 x `this.radius`
+  - `area`: `pi` x `this.radius`². Don't forget about [PEMDAS](https://en.wikipedia.org/wiki/Order_of_operations)!
 
   All instances of `Circle` should be able to calculate the `diameter`,
-  `circumference`, and `area` based on the given `radius`, or can have `radius`
+  `circumference`, and `area` based on the given `radius`, or can have `this.radius`
   set by passing in `diameter`, `circumference`, or `area`.
 
 ## Conclusion
