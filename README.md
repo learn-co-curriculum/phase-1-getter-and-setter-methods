@@ -2,18 +2,16 @@
 
 ## Learning Goals
 
-- Builds getter and setter method to calculate computed properties
+- Builds getter and setter methods to calculate computed properties
 
 ## Introduction
 
-We've seen so far that we can write methods inside our `class`es
-that allow us to access and change instance variables. These methods work 
-fine in some cases. However, we know about additional JS syntax that we
-can use: `get` and `set`. With `get`, we can return calculated or dynamic
-data based an object's attributes, and with `set` we can change an
-attribute in a controlled way. In this lab, we will be building on the
-concept of _instance variables_ to illustrate these methods.
-
+We've seen so far that we can write methods inside our `class`es that allow us
+to access and change properties. These methods work fine in some cases. However,
+we know about additional JS syntax that we can use: `get` and `set`. With `get`,
+we can return calculated or dynamic data based an object properties, and with
+`set` we can change a property in a controlled way. In this lab, we will be
+building pseudo-properties to illustrate these these concepts.
 
 ## Builds Getter and Setter Method to Calculate Computed Properties
 
@@ -21,56 +19,74 @@ Let's look at a quick example for review:
 
 ```js
 class Bird {
-  constructor(name) {
-    this.name = name;
-  }
+	constructor(name) {
+		this.name = name;
+	}
 
-  set phrase() {
-    this.phrase = phrase;
-  }
+	set phrase(phrase) {
+		this._phrase = phrase;
+	}
 
-  get speak() {
-    return `${this.name} says ${this.phrase || 'squawk'}`
-  }
+	get speak() {
+		return `${this.name} says ${this._phrase || 'squawk'}`;
+	}
 }
+
+let daffy = new Bird('Daffy');
+daffy.speak; // => 'Daffy says squawk'
+daffy.phrase = "it's rabbit season!";
+daffy.speak; // => 'Daffy says it's rabbit season!'
 ```
-Our `class` of `Bird` accepts the parameter of `name`, which is set each time a new
-instance of `Bird` is created. When `phrase` is set, our new `Bird` instance
+
+Our `Bird` `class` accepts the parameter of `name`, which is set each time a
+new instance of `Bird` is created. When `phrase` is set, our new `Bird` instance
 can speak a phrase. If it is not set, it will squawk.
 
 ```js
-var buddy = Bird.new("Buddy")
+var buddy = Bird.new('Buddy');
 
 buddy.phrase = "What'cha doin'?";
-buddy.speak() // returns 'Buddy says What'cha doin'?'
+buddy.speak; // returns 'Buddy says What'cha doin'?'
 ```
 
 Building on this concept, we're going to build our own shape calculator!
-- First, let's create a `class` of `Circle`
-- `Circle` will accept 1 parameter of `radius` as instance data stored to `this.radius`
-- Define a `constant` for `pi` as `3.14`
-- Define `get` methods for `diameter`, `circumference`, and `area` which
-will calculate each value from `this.radius`
-- Define `set` methods for `diameter`, `circumference`, and `area` which
-will do the math in reverse and _set_ `this.radius` for the instance.
-- Given the `radius`, calculate the following in each corresponding method:
-  - `diameter`: `this.radius` x 2
-  - `circumference`: `pi` x 2 x `this.radius`
-  - `area`: `pi` x `this.radius`². Don't forget about [PEMDAS](https://en.wikipedia.org/wiki/Order_of_operations)!
 
-  All instances of `Circle` should be able to calculate the `diameter`,
-  `circumference`, and `area` based on the given `radius`, or can have `this.radius`
-  set by passing in `diameter`, `circumference`, or `area`.
+- First, let's create a `class` of `Circle`
+- `Circle` will accept 1 parameter, `radius`, and use `this.radius` to store the
+  value
+- Use `Math.PI` to get an accurate measurement of [pi][pi] (&pi;)
+- Define `get` methods for `diameter`, `circumference`, and `area` which
+  will calculate each value using `this.radius` and pi
+- Define `set` methods for `diameter`, `circumference`, and `area` which
+  will accept values for each calculation, calculate the _radius_ based on the
+  input value and _set_ `this.radius` accordingly
+
+For reference, here are the formulas for calculating diameter, circumference and
+area:
+
+- Diameter = radius &bull; 2
+- Circumference = &pi; &bull; diameter
+- Area = &pi; &bull; radius<sup>2</sup>
+
+> Don't forget about [PEMDAS](https://en.wikipedia.org/wiki/Order_of_operations)!
+
+All instances of `Circle` should be able to calculate the `diameter`,
+`circumference`, and `area` based on the given `radius`. All instances should
+also be able to set `this.radius` by setting a value to `diameter`,
+`circumference`, or `area`.
 
 ## Conclusion
 
-Getter and setter methods are very useful for doing things behind-the-scenes
-in JavaScript. Using a setter, you can call a function each time the value
-of a property is changed, and using a getter, you can return the computed
-value of a property--That’s it! Just as you can set and retrieve basic
-information such as `firstName` and `lastName`, you can also perform a
-number of functions that will "automagically" spit out output.
+Getter and setter methods are very useful for doing things behind-the-scenes in
+JavaScript. Using a setter, you can call a function each time the value of a
+pseudo-property is changed, making sure all data on an `class` instance is
+consistent. Using a getter, you can return a computed value as though it is a
+property! Just as you can set and retrieve basic information from properties,
+you can also perform a number of functions that will "automagically" spit out
+the output you want.
 
 ## Resources
 
-* [Property getters and setters](https://javascript.info/property-accessors)
+- [Property getters and setters](https://javascript.info/property-accessors)
+
+[pi]: https://en.wikipedia.org/wiki/Pi
