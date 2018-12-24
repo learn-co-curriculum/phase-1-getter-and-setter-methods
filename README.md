@@ -19,17 +19,17 @@ Let's look at a quick example for review:
 
 ```js
 class Bird {
-	constructor(name) {
-		this.name = name;
-	}
+  constructor(name) {
+    this.name = name;
+  }
+  
+  set phrase(phrase) {
+    this._phrase = phrase;
+  }
 
-	set phrase(phrase) {
-		this._phrase = phrase;
-	}
-
-	get speak() {
-		return `${this.name} says ${this._phrase || 'squawk'}`;
-	}
+  get speak() {
+    return `${this.name} says ${this._phrase || 'squawk'}`;
+  }
 }
 
 let daffy = new Bird('Daffy');
