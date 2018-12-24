@@ -55,9 +55,9 @@ Building on this concept, we're going to build our own shape calculator!
 - `Circle` will accept 1 parameter, `radius`, and use `this.radius` to store the
   value
 - Use `Math.PI` to get an accurate measurement of [pi][pi] (&pi;)
-- Define `get` methods for `diameter`, `circumference`, and `area` which
+- Define getter methods for `diameter`, `circumference`, and `area` which
   will calculate each value using `this.radius` and pi
-- Define `set` methods for `diameter`, `circumference`, and `area` which
+- Define setter methods for `diameter`, `circumference`, and `area` which
   will accept values for each calculation, calculate the _radius_ based on the
   input value and _set_ `this.radius` accordingly
 
