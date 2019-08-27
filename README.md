@@ -43,7 +43,7 @@ new instance of `Bird` is created. When `phrase` is set, our new `Bird` instance
 can speak a phrase. If it is not set, it will squawk.
 
 ```js
-var buddy = Bird.new('Buddy');
+let buddy = Bird.new('Buddy');
 
 buddy.phrase = "What'cha doin'?";
 buddy.speak; // returns 'Buddy says What'cha doin'?'
