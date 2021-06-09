@@ -1,4 +1,4 @@
-# Building Cells: Getter and Setter Methods
+# Getter and Setter Methods
 
 ## Learning Goals
 
