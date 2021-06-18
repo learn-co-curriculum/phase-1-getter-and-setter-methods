@@ -2,18 +2,18 @@
 
 ## Learning Goals
 
-- Builds getter and setter methods to calculate computed properties
+- Build getter and setter methods to calculate computed properties
 
 ## Introduction
 
 We've seen so far that we can write methods inside our `class`es that allow us
 to access and change properties. These methods work fine in some cases. However,
 we know about additional JS syntax that we can use: `get` and `set`. With `get`,
-we can return calculated or dynamic data based an object properties, and with
+we can return calculated or dynamic data based on object properties, and with
 `set` we can change a property in a controlled way. In this lab, we will be
-building pseudo-properties to illustrate these these concepts.
+building pseudo-properties to illustrate these concepts.
 
-## Builds Getter and Setter Method to Calculate Computed Properties
+## Build Getter and Setter Method to Calculate Computed Properties
 
 Let's look at a quick example for review:
 
@@ -43,7 +43,7 @@ new instance of `Bird` is created. When `phrase` is set, our new `Bird` instance
 can speak a phrase. If it is not set, it will squawk.
 
 ```js
-let buddy = Bird.new('Buddy');
+let buddy = new Bird('Buddy');
 
 buddy.phrase = "What'cha doin'?";
 buddy.speak; // returns 'Buddy says What'cha doin'?'
@@ -60,6 +60,7 @@ Building on this concept, we're going to build our own shape calculator!
 - Define setter methods for `diameter`, `circumference`, and `area` which
   will accept values for each calculation, calculate the _radius_ based on the
   input value and _set_ `this.radius` accordingly
+  - **Hint:** You will need to use [Math.sqrt()][Math.sqrt()] in your `area` setter method
 
 For reference, here are the formulas for calculating diameter, circumference and
 area:
@@ -79,8 +80,8 @@ also be able to set `this.radius` by setting a value to `diameter`,
 
 Getter and setter methods are very useful for doing things behind-the-scenes in
 JavaScript. Using a setter, you can call a function each time the value of a
-pseudo-property is changed, making sure all data on an `class` instance is
-consistent. Using a getter, you can return a computed value as though it is a
+pseudo-property is changed, making sure all data on a `class` instance is
+consistent. Using a getter, you can return a computed value as though it were a
 property! Just as you can set and retrieve basic information from properties,
 you can also perform a number of functions that will "automagically" spit out
 the output you want.
@@ -90,3 +91,4 @@ the output you want.
 - [Property getters and setters](https://javascript.info/property-accessors)
 
 [pi]: https://en.wikipedia.org/wiki/Pi
+[Math.sqrt()]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/sqrt
