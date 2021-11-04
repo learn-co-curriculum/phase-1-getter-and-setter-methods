@@ -19,39 +19,40 @@ Let's look at a quick example for review:
 
 ```js
 class Bird {
+  #phrase;
+
   constructor(name) {
     this.name = name;
   }
-  
+
   set phrase(phrase) {
-    this._phrase = phrase;
+    this.#phrase = phrase;
   }
 
   get speak() {
-    return `${this.name} says ${this._phrase || 'squawk'}`;
+    return `${this.name} says ${this.#phrase || "squawk"}`;
   }
 }
 
-let daffy = new Bird('Daffy');
+const daffy = new Bird("Daffy");
 daffy.speak; // => 'Daffy says squawk'
 daffy.phrase = "it's rabbit season!";
 daffy.speak; // => 'Daffy says it's rabbit season!'
 ```
 
-Our `Bird` `class` accepts the parameter of `name`, which is set each time a
+Our `Bird` class accepts the parameter of `name`, which is set each time a
 new instance of `Bird` is created. When `phrase` is set, our new `Bird` instance
 can speak a phrase. If it is not set, it will squawk.
 
 ```js
-let buddy = new Bird('Buddy');
-
+const buddy = new Bird("Buddy");
 buddy.phrase = "What'cha doin'?";
 buddy.speak; // returns 'Buddy says What'cha doin'?'
 ```
 
 Building on this concept, we're going to build our own shape calculator!
 
-- First, let's create a `class` of `Circle`
+- First, let's create a class of `Circle`
 - `Circle` will accept 1 parameter, `radius`, and use `this.radius` to store the
   value
 - Use `Math.PI` to get an accurate measurement of [pi][pi] (&pi;)
@@ -60,7 +61,8 @@ Building on this concept, we're going to build our own shape calculator!
 - Define setter methods for `diameter`, `circumference`, and `area` which
   will accept values for each calculation, calculate the _radius_ based on the
   input value and _set_ `this.radius` accordingly
-  - **Hint:** You will need to use [Math.sqrt()][Math.sqrt()] in your `area` setter method
+  - **Hint:** You will need to use [Math.sqrt()][math.sqrt()] in your `area`
+    setter method
 
 For reference, here are the formulas for calculating diameter, circumference and
 area:
@@ -91,4 +93,4 @@ the output you want.
 - [Property getters and setters](https://javascript.info/property-accessors)
 
 [pi]: https://en.wikipedia.org/wiki/Pi
-[Math.sqrt()]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/sqrt
+[math.sqrt()]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/sqrt
