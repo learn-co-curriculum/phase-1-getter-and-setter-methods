@@ -1,3 +1,5 @@
+require ( './helpers.js' );
+
 let circle;
 
 describe( "Circle", () => {
